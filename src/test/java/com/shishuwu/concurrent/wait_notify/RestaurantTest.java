@@ -1,19 +1,7 @@
-/*
- * @(#) RestaurantWaitNotifyTest 1.0 11/30/2019
- *
- * Copyright 2019 HP Inc. All rights reserved.
- * HP PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
- */
 package com.shishuwu.concurrent.wait_notify;
 
 import org.junit.Test;
 
-/**
- * TODO
- *
- * @author Jason Shi on 11/30/2019 - 9:30 AM.
- * @since HPDM 5.1
- */
 public class RestaurantTest {
 
     @Test

@@ -1,20 +1,8 @@
-/*
- * @(#) RestaurantWaitNotify 1.0 11/30/2019
- *
- * Copyright 2019 HP Inc. All rights reserved.
- * HP PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
- */
 package com.shishuwu.concurrent.wait_notify;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Wait notify mechanism to implement Producer & Consumer
- *
- * @author Jason Shi on 11/30/2019 - 9:21 AM.
- * @since HPDM 5.1
- */
 public class Restaurant {
     private static final int MAX_NUM = 10;
     private List<String> dishes = new ArrayList<>(10);
