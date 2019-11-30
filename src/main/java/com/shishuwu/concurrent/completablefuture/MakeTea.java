@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 import java.util.concurrent.TimeUnit;
 
-// task1: 洗水壶(1分钟) -> 烧开水(15分钟)
+// task1: 洗水壶(1分钟) -> 烧开水(5分钟)
 // task2: 洗茶壶(1分钟) -> 洗茶杯(2分钟) -> 拿茶叶 (1分钟)
 //                  task3: (1 & 2) -> 泡茶
 public class MakeTea {
@@ -17,7 +17,7 @@ public class MakeTea {
             TimeUnit.SECONDS.sleep(1);
 
             System.out.println("T1: 烧开水...");
-            TimeUnit.SECONDS.sleep(15);
+            TimeUnit.SECONDS.sleep(5);
 
         } catch (InterruptedException e) {
             e.printStackTrace();
