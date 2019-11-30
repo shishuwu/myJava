@@ -12,9 +12,10 @@ public class Chef extends Thread {
     public void run() {
         int i = 0;
         while (true) {
-            String dish = "dish " + i++;
+            long currentId = Thread.currentThread().getId();
+            String dish = "dish [" + currentId + "]" + i++;
             restaurant.produceDish(dish);
-            System.out.println("chef produced: " + dish);
+            System.out.println("chef[" + Thread.currentThread().getId() + "] produced: " + dish);
         }
     }
 }

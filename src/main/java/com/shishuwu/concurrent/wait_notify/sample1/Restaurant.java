@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Restaurant {
-    private static final int MAX_NUM = 10;
+    private static final int MAX_NUM = 100;
     private List<String> dishes = new ArrayList<>(10);
 
 
     public void produceDish(String dish) {
         synchronized (dishes) {
-            if (dishes.size() == MAX_NUM) {
+            while (dishes.size() == MAX_NUM) {
                 try {
                     dishes.wait();
                 } catch (InterruptedException e) {
@@ -19,6 +19,7 @@ public class Restaurant {
             }
 
             dishes.add(dish);
+            System.out.println("current capacity: " + dishes.size() +"/" + MAX_NUM);
             try {
                 Thread.sleep(20);
             } catch (InterruptedException e) {
@@ -33,7 +34,7 @@ public class Restaurant {
 
         String dish = null;
         synchronized (dishes) {
-            if (dishes.isEmpty()) {
+            while (dishes.isEmpty()) {
                 try {
                     dishes.wait();
                 } catch (InterruptedException e) {

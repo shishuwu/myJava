@@ -12,7 +12,7 @@ public class Guest extends Thread {
     public void run() {
         while(true){
             String dish = res.consumeDish();
-            System.out.println("Guest consumed: " + dish);
+            System.out.println("================= Guest consumed: " + dish);
         }
     }
 }
