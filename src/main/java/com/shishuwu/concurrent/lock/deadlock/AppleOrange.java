@@ -2,10 +2,6 @@ package com.shishuwu.concurrent.lock.deadlock;
 
 public class AppleOrange {
 
-    public final Object apple = new Object();
-    private Object orange = new Object();
-
-
     public static void main(String[] args) {
         final Object apple = new Object();
         final Object orange = new Object();
