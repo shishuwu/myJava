@@ -1,4 +1,4 @@
-package com.shishuwu.concurrent.wait_notify;
+package com.shishuwu.concurrent.wait_notify.sample1;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,7 +44,7 @@ public class Restaurant {
             dish = dishes.get(0);
             dishes.remove(0);
             try {
-                Thread.sleep(10000);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

@@ -1,8 +1,6 @@
-package com.shishuwu.concurrent.wait_notify;
+package com.shishuwu.concurrent.wait_notify.sample1;
 
-import java.util.Queue;
-
-public class Chef implements Runnable {
+public class Chef extends Thread {
 
     Restaurant restaurant;
 

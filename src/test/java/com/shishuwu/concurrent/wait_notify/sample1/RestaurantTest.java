@@ -1,5 +1,8 @@
-package com.shishuwu.concurrent.wait_notify;
+package com.shishuwu.concurrent.wait_notify.sample1;
 
+import com.shishuwu.concurrent.wait_notify.sample1.Chef;
+import com.shishuwu.concurrent.wait_notify.sample1.Guest;
+import com.shishuwu.concurrent.wait_notify.sample1.Restaurant;
 import org.junit.Test;
 
 public class RestaurantTest {
@@ -61,6 +64,42 @@ public class RestaurantTest {
 
         guestT.join();
         chefT.join();
+    }
+
+    @Test
+    public void testOneProducerAndMoreConsumer() throws InterruptedException {
+        Restaurant restaurant = new Restaurant();
+
+        Chef chef = new Chef(restaurant);
+        Guest guest = new Guest(restaurant);
+        Guest guest2 = new Guest(restaurant);
+
+        chef.start();
+        guest.start();
+        guest2.start();
+
+        chef.join();
+        guest.join();
+        guest2.join();
+
+    }
+
+
+    @Test
+    public void testMoreProducerAndOneConsumer() throws InterruptedException {
+        Restaurant restaurant = new Restaurant();
+
+        Chef chef = new Chef(restaurant);
+        Chef chef1 = new Chef(restaurant);
+        Guest guest = new Guest(restaurant);
+
+        chef.start();
+        chef1.start();
+        guest.start();
+
+        chef.join();
+        chef1.join();
+        guest.join();
     }
 }
 

@@ -1,7 +1,7 @@
-package com.shishuwu.concurrent.wait_notify;
+package com.shishuwu.concurrent.wait_notify.sample1;
 
 
-public class Guest implements Runnable {
+public class Guest extends Thread {
     private Restaurant res;
 
     public Guest(Restaurant res) {
