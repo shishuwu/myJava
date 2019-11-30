@@ -10,9 +10,9 @@ public class Guest extends Thread {
 
     @Override
     public void run() {
-        while(true){
+        while (true) {
             String dish = res.consumeDish();
-            System.out.println("================= Guest consumed: " + dish);
+            System.out.println("================= Guest{" + Thread.currentThread().getId() + "} consumed: " + dish);
         }
     }
 }

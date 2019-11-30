@@ -60,5 +60,29 @@ public class RestaurantTest {
         chef1.join();
         guest.join();
     }
+
+
+    @Test
+    public void testMoreProducerAndMoreConsumer() throws InterruptedException {
+        Restaurant restaurant = new Restaurant();
+
+        Chef chef = new Chef(restaurant);
+        Chef chef1 = new Chef(restaurant);
+        Guest guest = new Guest(restaurant);
+        Guest guest1 = new Guest(restaurant);
+        Guest guest2 = new Guest(restaurant);
+
+        chef.start();
+        chef1.start();
+        guest.start();
+        guest1.start();
+        guest2.start();
+
+        chef.join();
+        chef1.join();
+        guest.join();
+        guest1.join();
+        guest2.join();
+    }
 }
 
