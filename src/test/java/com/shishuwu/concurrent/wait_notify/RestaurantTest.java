@@ -8,7 +8,7 @@ public class RestaurantTest {
     public void testRestaurant() {
         final Restaurant restaurant = new Restaurant();
 
-        final int num = 100;
+        final int num = 5;
 
         Runnable chefTask = new Runnable() {
             @Override
@@ -45,4 +45,22 @@ public class RestaurantTest {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void testOneOne() throws InterruptedException {
+        Restaurant restaurant = new Restaurant();
+        Guest guest = new Guest(restaurant);
+        Chef chef = new Chef(restaurant);
+
+        Thread guestT = new Thread(guest);
+        Thread chefT = new Thread(chef);
+
+
+        guestT.start();
+        chefT.start();
+
+        guestT.join();
+        chefT.join();
+    }
 }
+

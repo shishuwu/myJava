@@ -8,35 +8,48 @@ public class Restaurant {
     private List<String> dishes = new ArrayList<>(10);
 
 
-    public synchronized void produceDish(String dish) {
-        while (dishes.size() >= MAX_NUM) {
-            try {
-                wait();
-            } catch (InterruptedException e) {
-                System.out.println(e);
+    public void produceDish(String dish) {
+        synchronized (dishes) {
+            if (dishes.size() == MAX_NUM) {
+                try {
+                    dishes.wait();
+                } catch (InterruptedException e) {
+                    System.out.println(e);
+                }
             }
 
             dishes.add(dish);
-            notifyAll();
+            try {
+                Thread.sleep(20);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            dishes.notifyAll();
         }
+
     }
 
-    public synchronized String consumeDish() {
+    public String consumeDish() {
 
         String dish = null;
-
-        while (dishes.isEmpty()) {
-            try {
-                wait();
-            } catch (InterruptedException e) {
-                System.out.println(e);
+        synchronized (dishes) {
+            if (dishes.isEmpty()) {
+                try {
+                    dishes.wait();
+                } catch (InterruptedException e) {
+                    System.out.println(e);
+                }
             }
+
+            dish = dishes.get(0);
+            dishes.remove(0);
+            try {
+                Thread.sleep(10000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            dishes.notifyAll();
         }
-
-        dish = dishes.get(0);
-        dishes.remove(0);
-        notifyAll();
-
         return dish;
     }
 }
